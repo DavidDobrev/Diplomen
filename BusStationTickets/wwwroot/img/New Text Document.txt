@@ -1,0 +1,25 @@
+
+//
+var products = _context.Products.Where(p => p.CategoryId == id).OrderBy(p => p.Name).ToList();
+
+
+///
+
+@if (ViewBag.Category != null)
+{
+    <h2>@ViewBag.category</h2>
+}
+<selection>
+    <div class="row">
+        @foreach (var p in Model)
+        {
+            <div class="col-sm-6 col-lg-4 mb-3">
+                <div class="card mb-3 text-center h-100">
+                    <div class="card-body">
+                        <a asp-controller="Products" asp-action="Details" asp-route-category="@p.CategoryId">@p.Name</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</selection>
